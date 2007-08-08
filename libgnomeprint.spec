@@ -1,9 +1,10 @@
 %define lib_major   0
-%define lib_name	%mklibname gnomeprint2-2_ %{lib_major}
+%define libname	%mklibname gnomeprint2-2_ %{lib_major}
+%define libnamedev %mklibname -d gnomeprint2-2
 
 Summary: GNOME print library
 Name: libgnomeprint
-Version: 2.18.0
+Version: 2.18.1
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
@@ -28,29 +29,28 @@ described in:
 
    http://www.levien.com/gnome/print-arch.html
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	Library for GNOME print support
 Group:		%{group}
 
 Requires:	%{name} >= %{version}
 
-%description -n %{lib_name}
+%description -n %{libname}
 This is an implementation of the Gnome Printing Architecture, as
 described in:
 
    http://www.levien.com/gnome/print-arch.html
 
-%package -n %{lib_name}-devel
+%package -n %{libnamedev}
 Summary:	Static libraries, include files for GNOME print
 Group:		Development/GNOME and GTK+
 Provides:	%{name}2-2-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}
+Requires:	%{libname} = %{version}
 Requires:	%{name} = %{version}
-Requires:   libart_lgpl-devel
-Requires:   libbonobo2_x-devel
+Obsoletes: %mklibname -d gnomeprint2-2_ 0
 
-%description -n %{lib_name}-devel
+%description -n %{libnamedev}
 This is an implementation of the Gnome Printing Architecture, as
 described in:
 
@@ -86,9 +86,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/libgnomeprint/%{version}/modules/*.{la,a} \
 rm -rf $RPM_BUILD_ROOT
 
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
   
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 
 %files -f %{name}-2.2.lang
@@ -104,11 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libgnomeprint/%{version}/modules/filters/*.so
 %{_datadir}/libgnomeprint
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/libgnomeprint-2-2.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr(-,root,root)
 %doc ChangeLog
 %doc %{_datadir}/gtk-doc/html/*
@@ -117,5 +117,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*
-
-
