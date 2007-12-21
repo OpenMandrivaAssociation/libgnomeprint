@@ -10,6 +10,7 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 License: LGPL
 Group: System/Libraries
 Url: http://www.levien.com/gnome/print-arch.html
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: libart_lgpl-devel
 BuildRequires: libbonobo2_x-devel
 BuildRequires: pango-devel >= 1.5
