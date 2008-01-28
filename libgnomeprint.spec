@@ -4,8 +4,8 @@
 
 Summary: GNOME print library
 Name: libgnomeprint
-Version: 2.18.2
-Release: %mkrel 2
+Version: 2.18.3
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
 Group: System/Libraries
