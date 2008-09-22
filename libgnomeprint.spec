@@ -4,10 +4,10 @@
 
 Summary: GNOME print library
 Name: libgnomeprint
-Version: 2.18.4
-Release: %mkrel 3
+Version: 2.18.5
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-License: LGPL
+License: LGPLv2+
 Group: System/Libraries
 Url: http://www.levien.com/gnome/print-arch.html
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -18,10 +18,10 @@ BuildRequires: libgnomecups-devel >= 0.2
 BuildRequires: bison
 BuildRequires: flex
 BuildRequires: gtk-doc >= 1.2
-BuildRequires: perl-XML-Parser
+BuildRequires: intltool
 #if patched
 BuildRequires: automake1.7
-BuildRequires: intltool
+
 
 %description
 This is an implementation of the Gnome Printing Architecture, as
