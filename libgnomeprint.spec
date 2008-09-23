@@ -5,7 +5,7 @@
 Summary: GNOME print library
 Name: libgnomeprint
 Version: 2.18.5
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPLv2+
 Group: System/Libraries
@@ -19,8 +19,6 @@ BuildRequires: bison
 BuildRequires: flex
 BuildRequires: gtk-doc >= 1.2
 BuildRequires: intltool
-#if patched
-BuildRequires: automake1.7
 
 
 %description
@@ -59,11 +57,6 @@ described in:
 
 %prep
 %setup -q
-
-#fix build on x86-64
-aclocal-1.7
-automake-1.7
-autoconf
 
 %build
 
