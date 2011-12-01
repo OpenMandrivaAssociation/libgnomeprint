@@ -65,18 +65,18 @@ described in:
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 
 %find_lang %{name}-2.2
 
 #remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/libgnomeprint/%{version}/modules/*.{la,a} \
- $RPM_BUILD_ROOT%{_libdir}/libgnomeprint/%{version}/modules/*/*.{la,a}
+rm -f %{buildroot}%{_libdir}/libgnomeprint/%{version}/modules/*.{la,a} \
+ %{buildroot}%{_libdir}/libgnomeprint/%{version}/modules/*/*.{la,a}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %if %mdkversion < 200900
