@@ -1,6 +1,6 @@
 %define api		2-2
 %define major   0
-%define libname	%mklibname gnomeprint%{api}_ %{major}
+%define libname	%mklibname gnomeprint %{api} %{major}
 %define develname %mklibname -d gnomeprint%{api}
 
 Summary: GNOME print library
@@ -11,6 +11,8 @@ License: LGPLv2+
 Group: System/Libraries
 Url: http://www.levien.com/gnome/print-arch.html
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# debian
+Patch0:	12_cups-transport.patch
 
 BuildRequires: bison
 BuildRequires: flex
@@ -52,9 +54,9 @@ described in:
 
 %prep
 %setup -q
+%apply_patches
 
 %build
-
 %configure2_5x \
 	--disable-static
 
@@ -62,16 +64,12 @@ described in:
 
 %install
 rm -rf %{buildroot}
-
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
-%find_lang %{name}-%{api}
+%find_lang %{name}-2.2
 
-#remove unpackaged files
-rm -f %{buildroot}%{_libdir}/libgnomeprint/%{version}/modules/*.{la,a} \
- %{buildroot}%{_libdir}/libgnomeprint/%{version}/modules/*/*.{la,a}
-
-%files -f %{name}-%{api}.lang
+%files -f %{name}-2.2.lang
 %doc README AUTHORS NEWS 
 %dir %{_libdir}/libgnomeprint
 %dir %{_libdir}/libgnomeprint/%{version}
@@ -92,3 +90,4 @@ rm -f %{buildroot}%{_libdir}/libgnomeprint/%{version}/modules/*.{la,a} \
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
+
