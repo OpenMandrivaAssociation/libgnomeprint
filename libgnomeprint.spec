@@ -8,7 +8,7 @@
 Summary:	GNOME print library
 Name:		libgnomeprint
 Version:	2.18.8
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.levien.com/gnome/print-arch.html
