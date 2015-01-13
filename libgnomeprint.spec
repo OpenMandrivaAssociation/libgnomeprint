@@ -56,9 +56,8 @@ This package contains the development files for %{name}.
 %apply_patches
 
 %build
-%configure2_5x \
-	--disable-static
-
+export CC=gcc
+%configure
 %make
 
 %install
