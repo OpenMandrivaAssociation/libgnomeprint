@@ -15,6 +15,10 @@ Url:		http://www.levien.com/gnome/print-arch.html
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libgnomeprint/%{url_ver}/%{name}-%{version}.tar.bz2
 # debian
 Patch0:		12_cups-transport.patch
+# (cjw) add a stdio.h include for FILE etc.
+Patch1:		libgnomeprint-2.18.8-glibc.patch
+Patch2:		libgnomeprint-2.18.8-grammar.y.patch
+Patch3:		libgnomeprint-2.18.8-freetype.patch
 
 BuildRequires:	bison
 BuildRequires:	flex
