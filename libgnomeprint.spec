@@ -12,7 +12,7 @@ Version:	2.18.8
 Release:	13
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.levien.com/gnome/print-arch.html
+Url:		https://www.levien.com/gnome/print-arch.html
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libgnomeprint/%{url_ver}/%{name}-%{version}.tar.bz2
 # debian
 Patch0:		12_cups-transport.patch
