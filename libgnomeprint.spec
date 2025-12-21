@@ -21,6 +21,11 @@ Patch1:		libgnomeprint-2.18.8-glibc.patch
 Patch2:		libgnomeprint-2.18.8-grammar.y.patch
 Patch3:		libgnomeprint-2.18.8-freetype.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gtk-doc >= 1.2
